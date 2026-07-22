@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo ao EduVest | Educação Financeira Escolar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo-acesso.css">
+    <style>
+        :root {
+            --cor-primaria: #BE123C; /* Vermelho */
+            --cor-secundaria: #EA580C; /* Laranja */
+            --cor-detalhe: #EAB308; /* Amarelo */
+            --fundo-suave: #F8FAFC;
+            --borda: #E2E8F0;
+            --texto-escuro: #1E293B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--fundo-suave);
+            background-image: 
+                linear-gradient(135deg, rgba(234, 179, 8, 0.06) 0%, transparent 35%),
+                linear-gradient(225deg, rgba(190, 18, 60, 0.06) 0%, transparent 35%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: var(--texto-escuro);
+        }
+
+        header {
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .marca { 
+            font-weight: 800; 
+            font-size: 1.8rem; 
+            color: var(--cor-primaria); 
+            text-decoration: none; 
+        }
+
+        .welcome-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 3rem 20px;
+            text-align: center;
+        }
+
+        .badge-welcome {
+            display: inline-block;
+            background: rgba(190, 18, 60, 0.1);
+            color: var(--cor-primaria);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin: 0 0 1.5rem 0;
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            background: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitulo {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+            line-height: 1.6;
+        }
+
+        .btn-entrar {
+            display: inline-block;
+            background: var(--cor-primaria);
+            color: white;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            box-shadow: 0 10px 15px -3px rgba(190, 18, 60, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .btn-entrar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(190, 18, 60, 0.4);
+            background: #9F1239;
+        }
+
+        .mini-recursos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 4rem;
+        }
+
+        .card-recurso {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--borda);
+            text-align: left;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .card-recurso .icone-recurso {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-recurso h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+            color: var(--texto-escuro);
+        }
+
+        .card-recurso p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #64748B;
+            line-height: 1.4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: #94A3B8;
+            border-top: 1px solid var(--borda);
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .mini-recursos { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="marca">EduVest</a>
+        <div style="font-size: 0.9rem; color: #64748B; font-weight: 600;">Futuro Financeiro Consciente</div>
+    </header>
+
+    <main class="welcome-container">
+        <span class="badge-welcome">Plataforma Educacional</span>
+        <h1>Aprenda a cuidar do seu dinheiro do <span>jeito certo</span></h1>
+        
+        <p class="subtitulo">
+            Uma jornada de conhecimento financeiro feita sob medida para todas as idades. Descubra trilhas interativas desde os primeiros passos com poupança até grandes investimentos de mercado.
+        </p>
+
+        <a href="EduVestPrototype.html" class="btn-entrar">
+            Acessar a Trilha EduVest
+        </a>
+
+        <div class="mini-recursos">
+            <div class="card-recurso">
+                <span class="icone-recurso">🌱</span>
+                <h3>Infância Consciente</h3>
+                <p>Módulos divertidos e gamificados criados para a faixa dos 8 aos 12 anos entenderem o valor de guardar.</p>
+            </div>
+            <div class="card-recurso">
+                <span class="icone-recurso">🚀</span>
+                <h3>Autonomia Jovem</h3>
+                <p>Simuladores e desafios práticos focados em gastos diários e noções de bolsa para jovens de 12 a 25 anos.</p>
+            </div>
+            <div class="card-recurso">
+                <span class="icone-recurso">💼</span>
+                <h3>Maturidade e Negócios</h3>
+                <p>Aulas densas e ferramentas profissionais sobre planejamento sucessório e finanças corporativas para o público 25+.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 EduVest Tecnologia Educacional. Todos os direitos reservados.
+    </footer>
+
+    <script src="logica-acesso.js"></script>
+</body>
+</html>

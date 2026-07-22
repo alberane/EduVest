@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios de Progresso | EduVest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo-acesso.css">
+    <style>
+        :root {
+            --cor-primaria: #BE123C;
+            --cor-secundaria: #EA580C;
+            --cor-detalhe: #EAB308;
+            --fundo-suave: #F8FAFC;
+            --borda: #E2E8F0;
+            --texto-escuro: #1E293B;
+            --sucesso: #16A34A;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--texto-escuro);
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--borda);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marca { font-weight: 800; font-size: 1.6rem; color: var(--cor-primaria); text-decoration: none; }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--cor-primaria);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .aviso-simulacao {
+            background: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            color: #1E40AF;
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .card-relatorio {
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .topo-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--borda);
+            padding-bottom: 0.5rem;
+        }
+
+        .nome-aluno { font-weight: 800; font-size: 1.1rem; }
+        
+        .badge-etaria {
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Cores das faixas etárias combinando com o padrão do app */
+        .etaria-8-12 { background: #FEF9C3; color: #854D0E; }
+        .etaria-12-17 { background: #FFEDD5; color: #9A3412; }
+        .etaria-18-25 { background: #FFE4E6; color: #9F1239; }
+        .etaria-25 { background: #F1F5F9; color: #1E293B; }
+
+        .metricas-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .metrica-item {
+            font-size: 0.9rem;
+        }
+
+        .metrica-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            color: #475569;
+        }
+
+        .barra-progresso-bg {
+            background: #E2E8F0;
+            border-radius: 10px;
+            height: 12px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .barra-progresso-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .conquistas-container {
+            margin-top: 1rem;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge-conquista {
+            background: #F8FAFC;
+            border: 1px solid var(--borda);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="bg-dinamico">
+
+    <header>
+        <a href="EduVestPrototype.html" class="marca">EduVest</a>
+        <div style="font-size: 0.9rem; color: #64748B;">Central do Responsável e Aluno</div>
+    </header>
+
+    <div class="container">
+        <a href="EduVestPrototype.html" class="btn-voltar">← Voltar para a Trilha</a>
+
+        <div class="aviso-simulacao">
+            🚀 <strong>Ambiente de Demonstração:</strong> Esta página simula visualmente como pais, professores e alunos visualizam a evolução do aprendizado prático e teórico dentro da plataforma EduVest em tempo real.
+        </div>
+
+        <h1 style="color: var(--cor-primaria); margin-bottom: 2rem;">Painel de Progresso por Faixa Etária</h1>
+
+        <div class="dashboard-grid">
+            
+            <div class="card-relatorio">
+                <div class="topo-card">
+                    <div>
+                        <div class="nome-aluno">Lucas Silva</div>
+                        <div style="font-size: 0.8rem; color: #64748B;">Ensino Fundamental I</div>
+                    </div>
+                    <span class="badge-etaria etaria-8-12">8 a 12 anos</span>
+                </div>
+                <div class="metricas-lista">
+                    <div class="metrica-item">
+                        <div class="metrica-label"><span>Hábito de Poupar (Cofres)</span><strong>90%</strong></div>
+                        <div class="barra-progresso-bg"><div class="barra-progresso-fill" style="width: 90%; background: var(--cor-detalhe);"></div></div>
+                    </div>
+                    <div class="metrica-item">
+                        <div class="metrica-label"><span>Conceito: Necessidade vs. Desejo</span><strong>75%</strong></div>
+                        <div class="barra-progresso-bg"><div class="barra-progresso-fill" style="width: 75%; background: var(--cor-detalhe);"></div></div>
+                    </div>
+                </div>
+                <div class="conquistas-container">
+                    <span class="badge-conquista">🐷 Guardião do Cofre</span>
+                    <span class="badge-conquista">🚲 Bicicleta Conquistada</span>
+                </div>
+            </div>
+
+            <div class="card-relatorio">
+                <div class="topo-card">
+                    <div>
+                        <div class="nome-aluno">Mariana Costa</div>
+                        <div style="font-size: 0.8rem; color: #64748B;">Ensino Fundamental II / Médio</div>
+                    </div>
+                    <span class="badge-etaria etaria-12-17">12 a 17 anos</span>
+                </div>
+                <div class="metricas-lista">
+                    <div class="metrica-item">
+                        <div class="metrica-label"><span>Gerenciamento de Gastos Variáveis</span><strong>80%</strong></div>
+                        <div class="barra-progresso-bg"><div class="barra-progresso-fill" style="width: 80%; background: var(--cor-secundaria);"></div></div>
+                    </div>
+                    <div class="metrica-item">
+                        <div class="metrica-label"><span>Diferenciação de Renda Fixa/Bolsa</span><strong>60%</strong></div>
+                        <div class="barra-progresso-bg"><div class="barra-progresso-fill" style="width: 60%; background: var(--cor-secundaria);"></div></div>
+                    </div>
+                </div>
+                <div class="conquistas-container">
+                    <span class="badge-conquista">📝 Orçamento Equilibrado</span>
+                    <span class="badge-conquista">🏙️ Primeiro Investimento</span>
+                </div>
+            </div>
+
+            <div class="card-relatorio">
+                <div class="topo-card">
+                    <div>
+                        <div class="nome-aluno">Gustavo Rocha</div>
+                        <div style="font-size: 0.8rem; color: #64748B;">Ensino Superior / Jovem Adulto</div>
+                    </div>
+                    <span class="badge-etaria etaria-18-25">18 a 25 anos</span>
+                </div>
+                <div class="metricas-lista">
+                    <div class="metrica-item">
+                        <div class="metrica-label"><span>Direitos do Consumidor e Órgãos (CVM/BCB)</span><strong>100%</strong></div>
+                        <div class="barra-progresso-bg"><div class="barra-progresso-fill" style="width: 100%; background: var(--cor-primaria);"></div></div>
+                    </div>
+                    <div class="metrica-item">
+                        <div class="metrica-label"><span>Planejamento de Crédito e Financiamento</span><strong>45%</strong></div>
+                        <div class="barra-progresso-bg"><div class="barra-progresso-fill" style="width: 45%; background: var(--cor-primaria);"></div></div>
+                    </div>
+                </div>
+                <div class="conquistas-container">
+                    <span class="badge-conquista">⚖️ Cidadão Regulado</span>
+                    <span class="badge-conquista">🛡️ Anti-Fraudes</span>
+                </div>
+            </div>
+
+            <div class="card-relatorio">
+                <div class="topo-card">
+                    <div>
+                        <div class="nome-aluno">Carla Almeida</div>
+                        <div style="font-size: 0.8rem; color: #64748B;">Vida Profissional / Empreendedorismo</div>
+                    </div>
+                    <span class="badge-etaria etaria-25">25+ anos</span>
+                </div>
+                <div class="metricas-lista">
+                    <div class="metrica-item">
+                        <div class="metrica-label"><span>Separação de Contas (PF vs. PJ)</span><strong>95%</strong></div>
+                        <div class="barra-progresso-bg"><div class="barra-progresso-fill" style="width: 95%; background: #1E293B;"></div></div>
+                    </div>
+                    <div class="metrica-item">
+                        <div class="metrica-label"><span>Gestão de Fluxo de Caixa e Pró-labore</span><strong>70%</strong></div>
+                        <div class="barra-progresso-bg"><div class="barra-progresso-fill" style="width: 70%; background: #1E293B;"></div></div>
+                    </div>
+                </div>
+                <div class="conquistas-container">
+                    <span class="badge-conquista">💼 Entidade Blindada</span>
+                    <span class="badge-conquista">📊 Caixa Controlado</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="logica-acesso.js"></script>
+</body>
+</html>

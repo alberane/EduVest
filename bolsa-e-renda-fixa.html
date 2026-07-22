@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolsa e Renda Fixa | EduVest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo-acesso.css">
+    <style>
+        :root {
+            --cor-primaria: #BE123C;
+            --cor-secundaria: #EA580C;
+            --cor-detalhe: #EAB308;
+            --fundo-suave: #F8FAFC;
+            --borda: #E2E8F0;
+            --texto-escuro: #1E293B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--borda);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marca { font-weight: 800; font-size: 1.6rem; color: var(--cor-primaria); text-decoration: none; }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .aula-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--borda);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            color: var(--texto-escuro);
+        }
+
+        h1 { color: var(--cor-secundaria); margin-bottom: 1rem; }
+
+        .bloco-comparativo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .card-conceito {
+            border: 1px solid var(--borda);
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .card-conceito h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tabela-resumo {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .tabela-resumo th, .tabela-resumo td {
+            border: 1px solid var(--borda);
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .tabela-resumo th {
+            background: #F8FAFC;
+            color: var(--texto-escuro);
+        }
+
+        .badge {
+            background: var(--cor-secundaria);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .nota-informativa {
+            background: #EFF6FF;
+            border-left: 4px solid #3B82F6;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body class="bg-dinamico tema-fundamental2">
+
+    <header>
+        <a href="EduVestPrototype.html" class="marca">EduVest</a>
+        <div style="font-size: 0.9rem; color: #64748B;">Módulo: Ensino Fundamental II e Médio</div>
+    </header>
+
+    <div class="container">
+        <a href="EduVestPrototype.html" class="btn-voltar">← Voltar para a Trilha</a>
+
+        <div class="aula-box">
+            <span class="badge">Introdução ao Mercado</span>
+            <h1>Bolsa de Valores e Renda Fixa</h1>
+            <p>Quando pensamos em investir, o mercado se divide essencialmente em dois grandes caminhos: a <strong>Renda Fixa</strong> (onde as regras são combinadas no início) e a <strong>Renda Variável</strong> (onde os resultados mudam conforme a economia e as empresas). Vamos entender a lógica de cada um.</p>
+
+            <div class="bloco-comparativo">
+                <div class="card-conceito" style="border-top: 4px solid var(--cor-detalhe);">
+                    <h3 style="color: #A16207;">🐷 1. Renda Fixa</h3>
+                    <p>Funciona como um <strong>empréstimo</strong>. Você empresta o seu dinheiro para uma instituição (pode ser para o Governo, para um Banco ou para uma Empresa) e, em troca, eles devolvem o seu dinheiro no futuro corrigido por uma taxa de juros.</p>
+                    <p><strong>Exemplos comuns:</strong> Tesouro Direto, CDBs e Poupança.</p>
+                </div>
+
+                <div class="card-conceito" style="border-top: 4px solid var(--cor-primaria);">
+                    <h3 style="color: var(--cor-primaria);">🏙️ 2. Bolsa de Valores</h3>
+                    <p>Funciona como uma <strong>sociedade</strong>. A Bolsa é o ambiente digital onde pedaços de grandes empresas (chamados de <strong>Ações</strong>) são negociados. Ao comprar uma ação, você se torna "sócio" ou "parceiro" dos resultados daquela empresa.</p>
+                    <p><strong>Exemplos comuns:</strong> Ações de empresas de tecnologia, bancos ou energia, e Fundos Imobiliários.</p>
+                </div>
+            </div>
+
+            <h2>Comparativo Direto</h2>
+            <p>Para escolher onde colocar o dinheiro que você conseguiu economizar no módulo anterior, vale analisar este equilíbrio:</p>
+
+            <table class="tabela-resumo">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Renda Fixa</th>
+                        <th>Bolsa de Valores (Renda Variável)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Previsibilidade</strong></td>
+                        <td>Alta. Você sabe ou estima o retorno desde o início.</td>
+                        <td>Baixa. Os preços mudam todos os dias na tela.</td>
+                        
+                    </tr>
+                    <tr>
+                        <td><strong>Risco de Perda</strong></td>
+                        <td>Muito baixo (vários contam com garantias ou proteção do governo).</td>
+                        <td>Médio a Alto. Depende do desempenho da empresa no mercado.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Objetivo Comum</strong></td>
+                        <td>Guardar dinheiro para metas certas (ex: comprar um computador, reserva).</td>
+                        <td>Multiplicar o dinheiro pensando no longo prazo (anos à frente).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="nota-informativa">
+                <strong>O Conceito de Risco vs. Retorno:</strong> No mercado financeiro, existe uma regra clara: quanto mais seguro um investimento for (Renda Fixa), menor tende a ser o seu rendimento. Para buscar rendimentos maiores, investidores aceitam correr oscilações na Bolsa de Valores. O segredo de uma boa carteira no futuro é o equilíbrio entre os dois.
+            </div>
+        </div>
+    </div>
+
+    <script src="logica-acesso.js"></script>
+</body>
+</html>

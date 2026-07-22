@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo a Guardar | EduVest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo-acesso.css">
+    <style>
+        :root {
+            --cor-primaria: #BE123C;
+            --cor-secundaria: #EA580C;
+            --cor-detalhe: #EAB308;
+            --fundo-suave: #F8FAFC;
+            --borda: #E2E8F0;
+            --texto-escuro: #1E293B;
+            --sucesso: #16A34A;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--borda);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marca { font-weight: 800; font-size: 1.6rem; color: var(--cor-primaria); text-decoration: none; }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--cor-detalhe);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .aula-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--borda);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            color: var(--texto-escuro);
+        }
+
+        h1 { color: var(--cor-detalhe); margin-bottom: 1rem; text-shadow: 1px 1px 0px rgba(0,0,0,0.05); }
+
+        .dica-box {
+            background: #FEF9C3;
+            border-left: 4px solid var(--cor-detalhe);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Estilo do Micro Jogo */
+        .game-container {
+            background: #1E293B;
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .meta-display {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-bg {
+            background: #334155;
+            border-radius: 20px;
+            height: 25px;
+            width: 100%;
+            margin: 15px 0;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #FACC15, #EAB308);
+            height: 100%;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .btn-acao {
+            background: #334155;
+            color: white;
+            border: 1px solid #475569;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 5px;
+            transition: 0.2s;
+        }
+
+        .btn-acao:hover:not(:disabled) {
+            background: var(--cor-detalhe);
+            color: var(--texto-escuro);
+            border-color: var(--cor-detalhe);
+        }
+
+        .badge {
+            background: var(--cor-detalhe);
+            color: var(--texto-escuro);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="bg-dinamico tema-fundamental1">
+
+    <header>
+        <a href="EduVestPrototype.html" class="marca">EduVest</a>
+        <div style="font-size: 0.9rem; color: #64748B;">Módulo: Ensino Fundamental I (8-12 anos)</div>
+    </header>
+
+    <div class="container">
+        <a href="EduVestPrototype.html" class="btn-voltar">← Voltar para a Trilha</a>
+
+        <div class="aula-box">
+            <span class="badge">Primeiros Passos</span>
+            <h1>Aprendendo a Guardar! 🪙</h1>
+            <p>Você já sabe que o dinheiro serve para comprar coisas. Mas você sabia que se gastar tudo na mesma hora, nunca vai conseguir comprar coisas maiores e mais legais no futuro?</p>
+            
+            <p><strong>Guardar dinheiro (poupar)</strong> é como plantar uma sementinha. Você cuida dela hoje para colher um fruto incrível depois de um tempo!</p>
+
+            <div class="dica-box">
+                <strong>O Segredo dos Três Cofres:</strong> 
+                <br>Quando você ganhar uma moeda ou mesada, tente dividir assim:
+                <br>• <strong>Cofre 1: Gastar</strong> (Para o chiclete ou lanche de hoje)
+                <br>• <strong>Cofre 2: Guardar</strong> (Para o brinquedo ou jogo que você quer muito no final do ano)
+                <br>• <strong>Cofre 3: Ajudar</strong> (Para fazer uma boa ação ou dar um presente para alguém)
+            </div>
+        </div>
+
+        <div class="game-container">
+            <h2 style="margin-top: 0; color: var(--cor-detalhe);">Micro Jogo: O Desafio da Bicicleta 🚲</h2>
+            <p>Imagine que você quer muito comprar uma bicicleta nova que custa <strong>R$ 50,00</strong> (de brinquedo!). Toda semana você ganha uma mesada de <strong>R$ 10,00</strong>. Faça as escolhas certas para encher seu cofrinho!</p>
+            
+            <div class="meta-display">
+                <div><strong>Sua Meta:</strong> R$ 50,00 | <strong>No Cofre:</strong> <span id="saldo-cofre" style="color: #4ADE80; font-weight: bold;">R$ 0,00</span></div>
+                <div class="progress-bg">
+                    <div id="barra-progresso" class="progress-bar"></div>
+                </div>
+                <div id="status-semana" style="font-weight: 600; color: #94A3B8;">Semana 1 de 5</div>
+            </div>
+
+            <p id="pergunta-jogo">A mesada de R$ 10,00 chegou! Seus amigos estão indo comprar figurinhas brilhantes. O que você faz?</p>
+
+            <div id="botoes-jogo">
+                <button class="btn-acao" onclick="jogarTurno(10, 'Você guardou tudo! O cofrinho está sorrindo.')">Guardar os R$ 10,00 inteiros no cofre 🎯</button>
+                <button class="btn-acao" onclick="jogarTurno(5, 'Você comprou algumas figurinhas, mas guardou o resto!')">Gastar R$ 5,00 em figurinhas e guardar R$ 5,00 ⚖️</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="logica-acesso.js"></script>
+    <script>
+        let cofre = 0;
+        let semana = 1;
+        const meta = 50;
+
+        const proximasSemanas = {
+            2: {
+                texto: "Semana 2: Um carrinho de sorvete passou na rua! Um cascão caprichado custa R$ 5,00. Qual a sua decisão?",
+                opcoes: [
+                    { texto: "Não comprar e guardar os R$ 10,00 da semana 🍦", valor: 10, feedback: "Foco total! O sorvete pode esperar." },
+                    { texto: "Tomar o sorvete e guardar apenas R$ 5,00 😋", valor: 5, feedback: "Gostoso! Mas o cofrinho cresceu mais devagar." }
+                ]
+            },
+            3: {
+                texto: "Semana 3: Seu herói favorito ganhou uma revistinha nova por R$ 10,00. Se comprar, não guarda nada essa semana.",
+                opcoes: [
+                    { texto: "Guardar os R$ 10,00 para a bicicleta 🚲", valor: 10, feedback: "Ótima escolha! Falta pouco para o seu grande prêmio." },
+                    { texto: "Comprar a revista agora (-R$ 10,00 para o cofre) 📖", valor: 0, feedback: "A leitura é legal, mas essa semana o cofre ficou vazio!" }
+                ]
+            },
+            4: {
+                texto: "Semana 4: Você achou uma moeda de R$ 5,00 perdida na gaveta e juntou com a sua mesada de R$ 10,00! (Total: R$ 15,00)",
+                opcoes: [
+                    { texto: "Guardar tudo! R$ 15,00 direto para o cofre 💰", valor: 15, feedback: "Incrível! Que sorte encontrar esse bônus!" },
+                    { texto: "Gastar os R$ 5,00 achados em doces e guardar R$ 10,00 🍬", valor: 10, feedback: "Doces garantidos e o cofre continuou andando!" }
+                ]
+            },
+            5: {
+                texto: "Semana 5: Última semana! Você está muito perto do objetivo. Tem um passeio da escola que custa R$ 5,00.",
+                opcoes: [
+                    { texto: "Economizar e guardar os R$ 10,00 integrais 🔒", valor: 10, feedback: "Reta final de muita disciplina!" },
+                    { texto: "Ir ao passeio e guardar R$ 5,00 🚌", valor: 5, feedback: "Passeios com a escola são divertidos!" }
+                ]
+            }
+        };
+
+        function jogarTurno(valorGanho, feedbackTexto) {
+            cofre += valorGanho;
+            semana++;
+
+            // Atualiza barra de progresso
+            let porcentagem = Math.min((cofre / meta) * 100, 100);
+            document.getElementById('barra-progresso').style.width = porcentagem + '%';
+            document.getElementById('saldo-cofre').innerText = "R$ " + cofre.toFixed(2).replace('.', ',');
+
+            if (proximasSemanas[semana]) {
+                document.getElementById('status-semana').innerText = `Semana ${semana} de 5`;
+                document.getElementById('pergunta-jogo').innerText = proximasSemanas[semana].texto;
+                
+                let containerBotoes = document.getElementById('botoes-jogo');
+                containerBotoes.innerHTML = '';
+
+                proximasSemanas[semana].opcoes.forEach(opt => {
+                    let btn = document.createElement('button');
+                    btn.className = 'btn-acao';
+                    btn.innerText = opt.texto;
+                    btn.onclick = () => jogarTurno(opt.valor, opt.feedback);
+                    containerBotoes.appendChild(btn);
+                });
+            } else {
+                // Fim de jogo
+                document.getElementById('status-semana').innerText = "Desafio Concluído!";
+                let containerBotoes = document.getElementById('botoes-jogo');
+                
+                if (cofre >= meta) {
+                    document.getElementById('pergunta-jogo').innerHTML = `🎉 <strong>PARABÉNS!</strong> Você juntou R$ ${cofre.toFixed(2).replace('.', ',')} e conseguiu comprar sua bicicleta! Viu só como ter paciência vale a pena?`;
+                } else {
+                    document.getElementById('pergunta-jogo').innerHTML = `😔 <strong>QUASE LÁ!</strong> Você terminou com R$ ${cofre.toFixed(2).replace('.', ',')}. Não deu para comprar a bicicleta dessa vez porque gastamos um pouquinho demais no caminho, mas tente de novo com mais foco!`;
+                }
+
+                containerBotoes.innerHTML = `<a href="EduVestPrototype.html" style="text-decoration:none; text-align:center; background:var(--sucesso); color:white; padding:12px 24px; border-radius:8px; font-weight:bold; display:inline-block; margin-top:10px;">Voltar para a Trilha</a>`;
+            }
+        }
+    </script>
+</body>
+</html>

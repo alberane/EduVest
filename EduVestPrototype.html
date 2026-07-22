@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="estilo-acesso.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduVest | Educação Financeira Escolar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-primaria: #BE123C;
+            /* Vermelho */
+            --cor-secundaria: #EA580C;
+            /* Laranja */
+            --cor-detalhe: #EAB308;
+            /* Amarelo */
+            --fundo-suave: #F8FAFC;
+            --borda: #E2E8F0;
+            --texto-escuro: #1E293B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--fundo-suave);
+            background-image:
+                linear-gradient(135deg, rgba(234, 179, 8, 0.05) 0%, transparent 25%),
+                linear-gradient(225deg, rgba(190, 18, 60, 0.05) 0%, transparent 25%);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho Institucional */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--borda);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .marca {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--cor-primaria);
+            letter-spacing: -1px;
+        }
+
+        .parceiro-escola {
+            font-size: 0.9rem;
+            color: #64748B;
+            border-left: 2px solid var(--borda);
+            padding-left: 1rem;
+        }
+
+        /* Container Principal */
+        .conteudo-principal {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .texto-introducao {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .texto-introducao h1 {
+            font-size: 2.2rem;
+            color: #0F172A;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Cards das Fases */
+        .card-fase {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--borda);
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-fase h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: var(--texto-escuro);
+        }
+
+        .etiqueta {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* Estilos por Nível */
+        .nivel-1 {
+            border-left: 8px solid var(--cor-detalhe);
+        }
+
+        .nivel-1 .etiqueta {
+            background: #FEF9C3;
+            color: #854D0E;
+        }
+
+        .nivel-2 {
+            border-left: 8px solid var(--cor-secundaria);
+        }
+
+        .nivel-2 .etiqueta {
+            background: #FFEDD5;
+            color: #9A3412;
+        }
+
+        .nivel-3 {
+            border-left: 8px solid var(--cor-primaria);
+        }
+
+        .nivel-3 .etiqueta {
+            background: #FFE4E6;
+            color: #9F1239;
+        }
+
+        .nivel-4 {
+            border-left: 8px solid #4C0519;
+        }
+
+        .nivel-4 .etiqueta {
+            background: #F1F5F9;
+            color: #4C0519;
+        }
+
+        /* Trilha de Módulos */
+        .lista-modulos {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .item-modulo {
+            min-width: 150px;
+            background: #F1F5F9;
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .item-modulo:hover {
+            background: #E2E8F0;
+            cursor: pointer;
+        }
+
+        .icone {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .nome-modulo {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #334155;
+        }
+
+        /* Rodapé de Controle */
+        .painel-pais {
+            background: #1E293B;
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+            border-radius: 16px;
+            margin-top: 4rem;
+        }
+
+        .botao-pais {
+            background: var(--cor-detalhe);
+            color: #854D0E;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 850px) {
+            .card-fase {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 1.2rem;">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="marca">EduVest</div>
+            </a>
+            <div class="parceiro-escola">Material de Apoio Escolar</div>
+        </div>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <button onclick="abrirModal('modalLogin')"
+                style="cursor:pointer; background:none; border:none; font-weight:bold;">Entrar</button>
+            <button onclick="abrirModal('modalCadastro')"
+                style="cursor:pointer; background:#BE123C; color:white; border:none; padding:8px 15px; border-radius:8px; font-weight:bold;">Cadastrar</button>
+        </div>
+    </header>
+
+    <div class="conteudo-principal">
+
+        <div class="texto-introducao">
+            <h1>Programa de Educação Financeira</h1>
+            <p>Um caminho planejado para o aprendizado prático em cada etapa da vida escolar.</p>
+        </div>
+
+        <section class="card-fase nivel-1">
+            <div class="info-fase">
+                <span class="etiqueta">Ensino Fundamental I</span>
+                <h2>Primeiros Passos com o Dinheiro</h2>
+                <p>Nesta fase, as crianças aprendem de onde vem o dinheiro, para que ele serve e a importância de saber
+                    esperar para realizar um desejo.</p>
+            </div>
+            <div class="lista-modulos">
+                <div class="item-modulo">
+                    <a href="o-que-e-dinheiro.html" style="text-decoration: none; color: inherit;">
+                        <div class="item-modulo">
+                            <span class="icone">🪙</span>
+                            <span class="nome-modulo">O que é Dinheiro?</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-modulo">
+                    <a href="precisar-vs-querer.html" style="text-decoration: none; color: inherit;">
+                        <div class="item-modulo">
+                            <span class="icone">🍏</span>
+                            <span class="nome-modulo">Precisar vs. Querer</span>
+                        </div>
+                    </a>
+                    <a href="aprendendo-a-guardar.html" style="text-decoration: none; color: inherit;">
+                </div>
+                <div class="item-modulo">
+                    <span class="icone">🏺</span>
+                    <span class="nome-modulo">Aprendendo a Guardar</span>
+                </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="card-fase nivel-2">
+            <div class="info-fase">
+                <span class="etiqueta">Ensino Fundamental II e Médio</span>
+                <h2>Organização e Multiplicação</h2>
+                <p>O foco aqui é o gerenciamento. Ensinamos o jovem a cuidar do próprio dinheiro e apresentamos os
+                    conceitos básicos do mercado de investimentos.</p>
+            </div>
+            <div class="lista-modulos">
+                <a href="meus-primeiros-gastos.html" style="text-decoration: none; color: inherit;">
+                    <div class="item-modulo">
+                        <span class="icone">📝</span>
+                        <span class="nome-modulo">Meus Primeiros Gastos</span>
+                    </div>
+                </a>
+                <div class="item-modulo">
+                    <a href="o-poder-dos-juros.html" style="text-decoration: none; color: inherit;">
+                        <div class="item-modulo">
+                            <span class="icone">📈</span>
+                            <span class="nome-modulo">O Poder dos Juros</span>
+                        </div>
+                    </a>
+
+
+                </div>
+                <a href="bolsa-e-renda-fixa.html" style="text-decoration: none; color: inherit;">
+                    <div class="item-modulo">
+                        <span class="icone">🏙️</span>
+                        <span class="nome-modulo">Bolsa e Renda Fixa</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="card-fase nivel-3">
+            <div class="info-fase">
+                <span class="etiqueta">Jovem Adulto</span>
+                <h2>Formação de Patrimônio</h2>
+                <p>Auxílio direto na construção da reserva financeira, entendimento dos direitos do consumidor e escolha
+                    da melhor estratégia de investimento.</p>
+            </div>
+            <div class="lista-modulos">
+                <div class="item-modulo">
+                    <a href="reserva-de-seguranca.html" style="text-decoration: none; color: inherit;">
+                        <div class="item-modulo">
+                            <span class="icone">🛡️</span>
+                            <span class="nome-modulo">Reserva de Segurança</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-modulo">
+                    <a href="divisao-de-investimentos.html" style="text-decoration: none; color: inherit;">
+                        <div class="item-modulo">
+                            <span class="icone">⚖️</span>
+                            <span class="nome-modulo">Divisão de Investimentos</span>
+                        </div>
+                    </a>
+                    <a href="direitos-no-mercado.html" style="text-decoration: none; color: inherit;">
+                </div>
+                <div class="item-modulo">
+                    <span class="icone">⚖️</span>
+                    <span class="nome-modulo">Direitos no Mercado</span>
+                </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="card-fase nivel-4">
+            <div class="info-fase">
+                <span class="etiqueta">Vida Profissional</span>
+                <h2>Consolidação da Liberdade</h2>
+                <p>Estratégias para fortalecer o que foi construído, gestão financeira para negócios próprios e planos
+                    para o futuro a longo prazo.</p>
+            </div>
+            <div class="lista-modulos">
+                <div class="item-modulo">
+                    <a href="financas-para-negocios.html" style="text-decoration: none; color: inherit;">
+                        <span class="icone">💼</span>
+                        <span class="nome-modulo">Finanças para Negócios</span>
+                    </a>
+                </div>
+
+                <div class="item-modulo">
+                    <a href="acoes-e-lucros.html" style="text-decoration: none; color: inherit;">
+
+                        <span class="icone">📊</span>
+                        <span class="nome-modulo">Ações e Lucros</span>
+
+                    </a>
+                </div>
+                <div class="item-modulo">
+                    <a href="bens-e-sucessao.html" style="text-decoration: none; color: inherit;">
+
+                        <span class="icone">📜</span>
+                        <span class="nome-modulo">Bens e Sucessão</span>
+
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="painel-pais">
+            <h3>Área de Acompanhamento da Família</h3>
+            <p>Veja como está o desenvolvimento financeiro de seus filhos e acesse materiais de apoio para conversar
+                sobre dinheiro em casa.</p>
+            <a href="ver-relatorios-de-progresso.html" style="text-decoration: none; color: inherit;">
+                <div class="item-ferramenta">
+                    <span class="icone">📊</span>
+                    <span class="nome-ferramenta">Ver Relatórios de Progresso</span>
+                </div>
+            </a>
+
+        </div>
+        <div id="modalCadastro" class="modal-overlay">
+            <div class="modal-content">
+                <button onclick="fecharModais()"
+                    style="float:right; cursor:pointer; border:none; background:none; font-size:20px;">&times;</button>
+                <h2 style="color: #BE123C; margin-top:0;">Cadastro de Aluno e Responsável</h2>
+
+                <form class="form-grid" onsubmit="event.preventDefault(); alert('Cadastro realizado com sucesso!');">
+                    <input type="text" placeholder="Nome Completo do Aluno" class="full-width" required>
+                    <input type="text" placeholder="CPF do Aluno">
+                    <input type="date" title="Data de Nascimento do Aluno">
+                    <input type="email" placeholder="Email do Aluno" class="full-width">
+
+                    <input type="text" placeholder="Nome do Responsável" class="full-width" required>
+                    <input type="text" placeholder="CPF do Responsável" required>
+                    <input type="tel" placeholder="Telefone de Contato" required>
+                    <input type="email" placeholder="Email do Responsável" required>
+                    <input type="date" title="Data de Nascimento do Responsável">
+                    <input type="text" placeholder="Endereço Completo" class="full-width">
+
+                    <input type="password" placeholder="Crie uma Senha" class="full-width" required>
+
+                    <button type="submit"
+                        style="grid-column: span 2; background:#EA580C; color:white; border:none; padding:12px; border-radius:8px; cursor:pointer; font-weight:bold; margin-top:10px;">FINALIZAR
+                        CADASTRO</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="modalLogin" class="modal-overlay">
+            <div class="modal-content" style="max-width: 400px;">
+                <button onclick="fecharModais()"
+                    style="float:right; cursor:pointer; border:none; background:none; font-size:20px;">&times;</button>
+                <h2 style="color: #BE123C; margin-top:0;">Acessar Conta</h2>
+
+                <form style="display: flex; flex-direction: column; gap: 15px;"
+                    onsubmit="event.preventDefault(); alert('Login realizado!');">
+                    <input type="email" placeholder="Email do Responsável" required
+                        style="padding:10px; border:1px solid #ddd; border-radius:5px;">
+                    <input type="email" placeholder="Email do Aluno" required
+                        style="padding:10px; border:1px solid #ddd; border-radius:5px;">
+                    <input type="password" placeholder="Senha" required
+                        style="padding:10px; border:1px solid #ddd; border-radius:5px;">
+                    <input type="password" placeholder="Confirme a Senha" required
+                        style="padding:10px; border:1px solid #ddd; border-radius:5px;">
+
+                    <button type="submit"
+                        style="background:#BE123C; color:white; border:none; padding:12px; border-radius:8px; cursor:pointer; font-weight:bold;">ENTRAR
+                        NO EDUVEST</button>
+                </form>
+            </div>
+        </div>
+
+        <script src="logica-acesso.js"></script>
+        <script src="logica-acesso.js"></script>
+</body>
+
+</html>

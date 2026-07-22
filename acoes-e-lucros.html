@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ações e Lucros | EduVest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo-acesso.css">
+    <style>
+        :root {
+            --cor-primaria: #BE123C;
+            --cor-sucesso: #16A34A;
+            --fundo-suave: #F8FAFC;
+            --borda: #E2E8F0;
+            --texto-escuro: #1E293B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--borda);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marca { font-weight: 800; font-size: 1.6rem; color: var(--cor-primaria); text-decoration: none; }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--cor-primaria);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .aula-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--borda);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            color: var(--texto-escuro);
+        }
+
+        h1 { color: var(--cor-primaria); margin-bottom: 1.5rem; }
+
+        .conceito-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .card-conceito {
+            border: 1px solid var(--borda);
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        /* Simulador Sério */
+        .simulador-passivo {
+            background: #1E293B;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .input-inline {
+            background: #0F172A;
+            border: 1px solid #334155;
+            color: #4ADE80;
+            padding: 8px;
+            border-radius: 4px;
+            width: 100px;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .resultado-passivo {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(74, 222, 128, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            text-align: center;
+        }
+
+        .valor-mensal {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #4ADE80;
+            display: block;
+        }
+
+        .badge-pro {
+            background: #1E293B;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-dinamico tema-jovem-adulto">
+
+    <header>
+        <a href="EduVestPrototype.html" class="marca">EduVest</a>
+        <div style="font-size: 0.9rem; color: #64748B;">Módulo: Mercado de Capitais (25+)</div>
+    </header>
+
+    <div class="container">
+        <a href="EduVestPrototype.html" class="btn-voltar">← Voltar para a Trilha</a>
+
+        <div class="aula-box">
+            <span class="badge-pro">Renda Variável</span>
+            <h1>Ações e Distribuição de Lucros</h1>
+            
+            <p>Ao comprar uma ação, você se torna sócio de uma empresa. Seu lucro vem de duas formas principais: a <strong>valorização do papel</strong> e a <strong>distribuição de lucros</strong> (Dividendos e JCP).</p>
+
+            <div class="conceito-grid">
+                <div class="card-conceito">
+                    <h3 style="color: var(--cor-primaria); margin-top: 0;">Dividendos</h3>
+                    <p style="font-size: 0.9rem;">É a parte do lucro líquido que a empresa distribui em dinheiro aos acionistas. No Brasil, empresas listadas são obrigadas por lei a distribuir uma parcela de seus lucros.</p>
+                </div>
+                <div class="card-conceito">
+                    <h3 style="color: var(--cor-primaria); margin-top: 0;">Dividend Yield (DY)</h3>
+                    <p style="font-size: 0.9rem;">Indicador que mostra quanto a empresa pagou em dividendos nos últimos 12 meses em relação ao preço atual da ação. É o "aluguel" do seu investimento.</p>
+                </div>
+            </div>
+
+            <h3>A Mentalidade do Investidor de Valor</h3>
+            <p>Para o investidor maduro, a oscilação do preço no curto prazo (volatilidade) importa menos do que a saúde financeira da empresa. O foco é acumular ativos que gerem caixa recorrente.</p>
+        </div>
+
+        <div class="simulador-passivo">
+            <h2 style="margin-top: 0; color: #4ADE80;">Calculadora de Renda Passiva</h2>
+            <p>Projete quanto você receberia mensalmente com base no tamanho da sua carteira e no Yield esperado.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 1.5rem;">
+                <div>
+                    Eu pretendo ter um patrimônio investido de 
+                    R$ <input type="number" id="patrimonio" class="input-inline" value="100000" oninput="calcularRenda()">
+                </div>
+                <div>
+                    Com um Dividend Yield médio anual de 
+                    <input type="number" id="yield" class="input-inline" value="8" oninput="calcularRenda()"> %
+                </div>
+            </div>
+
+            <div class="resultado-passivo">
+                <span>Sua Renda Média Mensal seria de:</span>
+                <span id="renda-mensal" class="valor-mensal">R$ 666,67</span>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 10px;">
+                    Este valor representa o dinheiro entrando na sua conta sem que você precise vender suas ações.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="logica-acesso.js"></script>
+    <script>
+        function calcularRenda() {
+            const patrimonio = parseFloat(document.getElementById('patrimonio').value) || 0;
+            const yieldAnual = parseFloat(document.getElementById('yield').value) || 0;
+            
+            // Cálculo: (Patrimônio * YieldAnual%) / 12 meses
+            const rendaMensal = (patrimonio * (yieldAnual / 100)) / 12;
+
+            document.getElementById('renda-mensal').innerText = rendaMensal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+        // Inicia o cálculo
+        calcularRenda();
+    </script>
+</body>
+</html>

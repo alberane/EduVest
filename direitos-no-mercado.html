@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direitos no Mercado | EduVest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo-acesso.css">
+    <style>
+        :root {
+            --cor-primaria: #BE123C;
+            --cor-secundaria: #EA580C;
+            --fundo-suave: #F8FAFC;
+            --borda: #E2E8F0;
+            --texto-escuro: #1E293B;
+            --sucesso: #16A34A;
+            --erro: #DC2626;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--borda);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marca { font-weight: 800; font-size: 1.6rem; color: var(--cor-primaria); text-decoration: none; }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--cor-primaria);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .aula-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--borda);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            color: var(--texto-escuro);
+        }
+
+        h1 { color: var(--cor-primaria); margin-bottom: 1.5rem; }
+
+        .orgao-card {
+            border-left: 4px solid var(--cor-primaria);
+            background: #F8FAFC;
+            padding: 1.2rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Estilos do Quiz */
+        .quiz-container {
+            background: #1E293B;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .opcoes-quiz {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .btn-opcao-quiz {
+            background: #334155;
+            color: white;
+            border: 1px solid #475569;
+            padding: 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: left;
+            transition: 0.2s;
+        }
+
+        .btn-opcao-quiz:hover {
+            background: #475569;
+        }
+
+        #feedback-quiz {
+            margin-top: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .badge-adulto {
+            background: #BE123C;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-dinamico tema-jovem-adulto">
+
+    <header>
+        <a href="EduVestPrototype.html" class="marca">EduVest</a>
+        <div style="font-size: 0.9rem; color: #64748B;">Módulo: Jovem Adulto (18-25)</div>
+    </header>
+
+    <div class="container">
+        <a href="EduVestPrototype.html" class="btn-voltar">← Voltar para a Trilha</a>
+
+        <div class="aula-box">
+            <span class="badge-adulto">Regulação e Cidadania</span>
+            <h1>Direitos e Defesa no Mercado Financeiro</h1>
+            
+            <p>Ao ingressar no mercado de investimentos e utilizar serviços bancários como maior de idade, você passa a ser protegido por regras institucionais severas. Conhecer as entidades reguladoras é essencial para garantir a segurança dos seus recursos e evitar práticas abusivas.</p>
+
+            <h3>Os Pilares do Sistema Financeiro Nacional</h3>
+            
+            <div class="orgao-card">
+                <strong>BCB (Banco Central do Brasil):</strong> É a autoridade que supervisiona os bancos, fintechs e instituições de pagamento. Garante a estabilidade da moeda e fiscaliza a qualidade dos serviços bancários prestados aos cidadãos.
+            </div>
+
+            <div class="orgao-card">
+                <strong>CVM (Comissão de Valores Mobiliários):</strong> É o órgão que disciplina e fiscaliza o mercado de capitais (Bolsa de Valores, fundos de investimento, corretoras). A CVM atua para proteger o investidor contra fraudes, manipulações de mercado e garantir o acesso a informações transparentes.
+            </div>
+
+            <div class="orgao-card">
+                <strong>FGC (Fundo Garantidor de Créditos):</strong> Mecanismo privado que protege correntistas e investidores da renda fixa bancária (como CDB, LCI, LCA). Caso a instituição financeira sofra intervenção ou liquidação, o FGC assegura o ressarcimento de depósitos até o limite regulamentar vigente por CPF e por instituição.
+            </div>
+        </div>
+
+        <div class="quiz-container">
+            <h2 style="margin-top: 0; color: #FB7185;">Avaliação de Conceito</h2>
+            <p id="pergunta-texto">Se uma corretora de valores ocultar informações essenciais ou cometer irregularidades na negociação de ações na Bolsa, qual entidade é responsável por fiscalizar e punir essa conduta?</p>
+            
+            <div id="quiz-corpo" class="opcoes-quiz">
+                <button class="btn-opcao-quiz" onclick="verificarResposta(false, this)">A) Banco Central do Brasil (BCB)</button>
+                <button class="btn-opcao-quiz" onclick="verificarResposta(true, this)">B) Comissão de Valores Mobiliários (CVM)</button>
+                <button class="btn-opcao-quiz" onclick="verificarResposta(false, this)">C) Fundo Garantidor de Créditos (FGC)</button>
+            </div>
+
+            <div id="feedback-quiz"></div>
+        </div>
+    </div>
+
+    <script src="logica-acesso.js"></script>
+    <script>
+        function verificarResposta(isCorreta, botao) {
+            const feedback = document.getElementById('feedback-quiz');
+            const botoes = document.querySelectorAll('.btn-opcao-quiz');
+            
+            // Desabilita todos os botões após a resposta
+            botoes.forEach(b => b.disabled = true);
+
+            if (isCorreta) {
+                botao.style.background = "var(--sucesso)";
+                botao.style.borderColor = "var(--sucesso)";
+                feedback.innerText = "✅ Correto! A CVM é a entidade governamental focada na fiscalização e desenvolvimento do mercado de capitais e na proteção do investidor.";
+                feedback.style.color = "#4ADE80";
+            } else {
+                botao.style.background = "var(--erro)";
+                botao.style.borderColor = "var(--erro)";
+                feedback.innerText = "❌ Incorreto. Lembre-se: O BCB cuida de bancos tradicionais e moedas, enquanto a CVM fiscaliza especificamente o mercado de ações e investimentos mobiliários.";
+                feedback.style.color = "#F43F5E";
+            }
+
+            // Exibe botão para retornar após 2 segundos
+            setTimeout(() => {
+                document.getElementById('quiz-corpo').innerHTML = `
+                    <a href="EduVestPrototype.html" style="text-decoration:none; text-align:center; background:var(--cor-primaria); color:white; padding:12px; border-radius:8px; font-weight:bold; display:block;">Concluir Trilha Jovem Adulto</a>
+                `;
+            }, 2500);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Primeiros Gastos | EduVest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo-acesso.css">
+    <style>
+        :root {
+            --cor-primaria: #BE123C;
+            --cor-secundaria: #EA580C;
+            --cor-detalhe: #EAB308;
+            --fundo-suave: #F8FAFC;
+            --borda: #E2E8F0;
+            --texto-escuro: #1E293B;
+            --sucesso: #16A34A;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--borda);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marca { font-weight: 800; font-size: 1.6rem; color: var(--cor-primaria); text-decoration: none; }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .aula-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--borda);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            color: var(--texto-escuro);
+        }
+
+        h1 { color: var(--cor-secundaria); margin-bottom: 1rem; }
+
+        /* Estilo do Painel do Jogo */
+        .game-container {
+            background: #1E293B;
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .carteira-valor { color: #4ADE80; }
+        .felicidade-valor { color: #F43F5E; }
+
+        .cenario-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .botoes-decisao {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-opcao {
+            background: #334155;
+            color: white;
+            border: 1px solid #475569;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: left;
+            transition: 0.2s;
+        }
+
+        .btn-opcao:hover {
+            background: var(--cor-secundaria);
+            border-color: var(--cor-secundaria);
+        }
+
+        .badge {
+            background: var(--cor-secundaria);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="bg-dinamico tema-fundamental2">
+
+    <header>
+        <a href="EduVestPrototype.html" class="marca">EduVest</a>
+        <div style="font-size: 0.9rem; color: #64748B;">Módulo: Ensino Fundamental II</div>
+    </header>
+
+    <div class="container">
+        <a href="EduVestPrototype.html" class="btn-voltar">← Voltar para a Trilha</a>
+
+        <div class="aula-box">
+            <span class="badge">Orçamento Inicial</span>
+            <h1>Meus Primeiros Gastos</h1>
+            <p>Até agora, você aprendeu o que é o dinheiro. Mas como usá-lo na vida real? Gastar não é errado, desde que você saiba para onde seu dinheiro está indo e consiga equilibrar suas escolhas.</p>
+            
+            <div style="background: #FFF7ED; border-left: 4px solid var(--cor-secundaria); padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0;">
+                <strong>Gastos Fixos vs. Gastos Variáveis:</strong> 
+                <br>• <strong>Fixos:</strong> Aqueles que acontecem todo mês e você já sabe o valor (como a mensalidade da internet ou o plano de celular).
+                <br>• <strong>Variáveis:</strong> Aqueles que mudam de acordo com os seus hábitos (como o lanche na cantina, um cinema ou um jogo novo).
+            </div>
+        </div>
+
+        <div class="game-container">
+            <h2 style="margin-top: 0; color: var(--cor-detalhe);">Desafio da Semana: O Gerente</h2>
+            <p>Você recebeu sua mesada de <strong>R$ 100,00</strong> para passar a semana. Consegue chegar no domingo com dinheiro no bolso e sem zerar sua felicidade?</p>
+            
+            <div class="status-bar">
+                <div>Dinheiro disponível: <span id="carteira" class="carteira-valor">R$ 100,00</span></div>
+                <div>Nível de Diversão: <span id="felicidade" class="felicidade-valor">❤️ ❤️ ❤️</span></div>
+            </div>
+
+            <div class="cenario-card">
+                <h3 id="titulo-cenario" style="margin-top: 0; color: #94A3B8;">Situação 1 de 3</h3>
+                <p id="texto-cenario">Seus amigos te convidaram para ir ao cinema na quarta-feira. O ingresso e a pipoca vão custar R$ 40,00.</p>
+            </div>
+
+            <div id="opcoes-container" class="botoes-decisao">
+                <button class="btn-opcao" onclick="fazerEscolha(40, 1)">Ir ao cinema com a galera (-R$ 40 / +1 ❤️)</button>
+                <button class="btn-opcao" onclick="fazerEscolha(0, -1)">Ficar em casa e assistir streaming (R$ 0 / -1 ❤️)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="logica-acesso.js"></script>
+    <script>
+        let saldo = 100;
+        let felicidade = 3;
+        let etapa = 1;
+
+        const cenarios = {
+            2: {
+                titulo: "Situação 2 de 3",
+                texto: "Chegou a sexta-feira! Você precisa comprar o lanche na escola, mas lançaram uma skin nova no seu jogo favorito pelo mesmo valor (R$ 25,00). O que faz?",
+                opcoes: [
+                    { texto: "Comprar o lanche saudável na cantina (-R$ 25 / 0 ❤️)", custo: 25, modFelicidade: 0 },
+                    { texto: "Comprar a skin do jogo e levar lanche de casa (-R$ 25 / +1 ❤️)", custo: 25, modFelicidade: 1 },
+                    { texto: "Comprar a skin e ficar com fome na escola (-R$ 25 / -1 ❤️)", custo: 25, modFelicidade: -1 }
+                ]
+            },
+            3: {
+                titulo: "Situação 3 de 3",
+                texto: "Sábado à tarde. Seu fone de ouvido quebrou. Um fone simples cumpre a função por R$ 30,00, mas o de marca com luzes LED custa R$ 70,00.",
+                opcoes: [
+                    { texto: "Comprar o fone simples para economizar (-R$ 30 / 0 ❤️)", custo: 30, modFelicidade: 0 },
+                    { texto: "Comprar o fone de LED avançado (-R$ 70 / +1 ❤️)", custo: 70, modFelicidade: 1 },
+                    { texto: "Não comprar nenhum fone por enquanto (R$ 0 / -1 ❤️)", custo: 0, modFelicidade: -1 }
+                ]
+            }
+        };
+
+        function atualizarInterface() {
+            document.getElementById('carteira').innerText = "R$ " + saldo.toFixed(2).replace('.', ',');
+            
+            let coracoes = "";
+            for(let i=0; i<Math.max(0, felicidade); i++) coracoes += "❤️ ";
+            if(felicidade <= 0) coracoes = "💔 Sem energia";
+            document.getElementById('felicidade').innerText = coracoes;
+        }
+
+        function fazerEscolha(custo, modFelicidade) {
+            saldo -= custo;
+            felicidade += modFelicidade;
+            etapa++;
+
+            if (saldo < 0) {
+                finalizarJogo("FALÊNCIA! Você gastou mais do que tinha na carteira. No orçamento real, isso significa dívidas e juros altos do cartão.");
+                return;
+            }
+
+            if (felicidade <= 0) {
+                finalizarJogo("ZERA DIVERSÃO! Você economizou tudo, mas não aproveitou nada com seus amigos. Guardar dinheiro exige equilíbrio.");
+                return;
+            }
+
+            if (cenarios[etapa]) {
+                const proximo = cenarios[etapa];
+                document.getElementById('titulo-cenario').innerText = proximo.titulo;
+                document.getElementById('texto-cenario').innerText = proximo.texto;
+                
+                let container = document.getElementById('opcoes-container');
+                container.innerHTML = "";
+                
+                proximo.opcoes.forEach(op => {
+                    let botao = document.createElement('button');
+                    botao.className = "btn-opcao";
+                    botao.innerText = op.texto;
+                    botao.onclick = () => fazerEscolha(op.custo, op.modFelicidade);
+                    container.appendChild(botao);
+                });
+                
+                atualizarInterface();
+            } else {
+                finalizarJogo(`VITÓRIA! Você terminou a semana com R$ ${saldo.toFixed(2).replace('.', ',')} na carteira e manteve sua vida social equilibrada. Esse é o segredo do orçamento!`);
+            }
+        }
+
+        function finalizarJogo(mensagem) {
+            atualizarInterface();
+            document.getElementById('titulo-cenario').innerText = "Fim da Semana!";
+            document.getElementById('texto-cenario').innerText = mensagem;
+            document.getElementById('opcoes-container').innerHTML = `<a href="EduVestPrototype.html" style="text-decoration:none; text-align:center; background:var(--sucesso); color:white; padding:15px; border-radius:8px; font-weight:bold;">CONCLUIR MÓDULO</a>`;
+        }
+    </script>
+</body>
+</html>

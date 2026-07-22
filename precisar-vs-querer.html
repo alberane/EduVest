@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precisar vs. Querer | EduVest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-primaria: #BE123C;
+            --cor-secundaria: #EA580C;
+            --cor-detalhe: #EAB308;
+            --fundo-suave: #F8FAFC;
+            --borda: #E2E8F0;
+            --texto-escuro: #1E293B;
+            --sucesso: #16A34A;
+            --erro: #DC2626;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--fundo-suave);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--borda);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marca { font-weight: 800; font-size: 1.6rem; color: var(--cor-primaria); text-decoration: none; }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .aula-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--borda);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        h1 { color: var(--cor-primaria); margin-bottom: 1rem; }
+
+        /* Estilo do Jogo */
+        .jogo-container {
+            background: #1E293B;
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .item-display {
+            font-size: 4rem;
+            margin: 1rem 0;
+            min-height: 100px;
+        }
+
+        .item-nome {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .botoes-jogo {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-jogo {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn-precisar { background: var(--sucesso); color: white; }
+        .btn-querer { background: var(--cor-detalhe); color: #854D0E; }
+
+        .btn-jogo:active { transform: scale(0.95); }
+
+        #feedback {
+            margin-top: 1.5rem;
+            font-weight: bold;
+            height: 24px;
+        }
+
+        #placar {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #94A3B8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="EduVestPrototype.html" class="marca">EduVest</a>
+        <div style="font-size: 0.9rem; color: #64748B;">Módulo: Ensino Fundamental I</div>
+    </header>
+
+    <div class="container">
+        <a href="EduVestPrototype.html" class="btn-voltar">← Voltar para a Trilha</a>
+
+        <div class="aula-box">
+            <h1>Precisar vs. Querer</h1>
+            <p>Saber a diferença entre o que a gente <strong>precisa</strong> e o que a gente <strong>quer</strong> é o primeiro segredo para cuidar bem do dinheiro!</p>
+            <ul>
+                <li><strong>Necessidade (Precisar):</strong> Coisas essenciais para viver, como comida, água, casa e escola.</li>
+                <li><strong>Desejo (Querer):</strong> Coisas que são legais de ter, mas que não são obrigatórias, como brinquedos novos, doces ou um jogo de videogame.</li>
+            </ul>
+        </div>
+
+        <div class="jogo-container">
+            <h2>Desafio: Classifique o Item!</h2>
+            <p>O item abaixo é uma <strong>Necessidade</strong> ou um <strong>Desejo</strong>?</p>
+            
+            <div id="item-emoji" class="item-display">🍎</div>
+            <div id="item-nome" class="item-nome">Maçã</div>
+
+            <div class="botoes-jogo">
+                <button class="btn-jogo btn-precisar" onclick="jogar('precisar')">PRECISO</button>
+                <button class="btn-jogo btn-querer" onclick="jogar('querer')">QUERO</button>
+            </div>
+
+            <div id="feedback"></div>
+            <div id="placar">Acertos: <span id="pontos">0</span></div>
+        </div>
+    </div>
+
+    <script>
+        const itens = [
+            { nome: 'Água', emoji: '💧', tipo: 'precisar' },
+            { nome: 'Videogame', emoji: '🎮', tipo: 'querer' },
+            { nome: 'Remédio', emoji: '💊', tipo: 'precisar' },
+            { nome: 'Sorvete', emoji: '🍦', tipo: 'querer' },
+            { nome: 'Escola', emoji: '📚', tipo: 'precisar' },
+            { nome: 'Bicicleta de Manobras', emoji: '🚲', tipo: 'querer' },
+            { nome: 'Frutas', emoji: '🍎', tipo: 'precisar' },
+            { nome: 'Relógio de Ouro', emoji: '⌚', tipo: 'querer' }
+        ];
+
+        let indiceAtual = 0;
+        let pontos = 0;
+
+        function jogar(escolha) {
+            const feedback = document.getElementById('feedback');
+            const item = itens[indiceAtual];
+
+            if (escolha === item.tipo) {
+                feedback.innerHTML = "✅ Acertou!";
+                feedback.style.color = "#16A34A";
+                pontos++;
+                document.getElementById('pontos').innerText = pontos;
+            } else {
+                feedback.innerHTML = "❌ Ops! Era " + (item.tipo === 'precisar' ? 'Necessidade' : 'Desejo');
+                feedback.style.color = "#EF4444";
+            }
+
+            indiceAtual = (indiceAtual + 1) % itens.length;
+            
+            setTimeout(() => {
+                feedback.innerHTML = "";
+                document.getElementById('item-emoji').innerText = itens[indiceAtual].emoji;
+                document.getElementById('item-nome').innerText = itens[indiceAtual].nome;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

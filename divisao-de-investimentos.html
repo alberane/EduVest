@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisão de Investimentos | EduVest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo-acesso.css">
+    <style>
+        :root {
+            --cor-primaria: #BE123C;
+            --fundo-suave: #F8FAFC;
+            --borda: #E2E8F0;
+            --texto-escuro: #1E293B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--borda);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .marca { font-weight: 800; font-size: 1.6rem; color: var(--cor-primaria); text-decoration: none; }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--cor-primaria);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .aula-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--borda);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            color: var(--texto-escuro);
+        }
+
+        h1 { color: var(--cor-primaria); margin-bottom: 1.5rem; }
+
+        .secao-conteudo { margin-bottom: 2rem; }
+        
+        .tabela-alocacao {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+        }
+
+        .tabela-alocacao th, .tabela-alocacao td {
+            border: 1px solid var(--borda);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .tabela-alocacao th { background: #F1F5F9; color: var(--cor-primaria); }
+
+        .estratega-box {
+            background: #1E293B;
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .perfil-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 1.5rem;
+        }
+
+        .perfil-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .badge-adulto {
+            background: #BE123C;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-dinamico tema-jovem-adulto">
+
+    <header>
+        <a href="EduVestPrototype.html" class="marca">EduVest</a>
+        <div style="font-size: 0.9rem; color: #64748B;">Módulo: Jovem Adulto</div>
+    </header>
+
+    <div class="container">
+        <a href="EduVestPrototype.html" class="btn-voltar">← Voltar para a Trilha</a>
+
+        <div class="aula-box">
+            <span class="badge-adulto">Estratégia de Portfólio</span>
+            <h1>Divisão de Investimentos: Asset Allocation</h1>
+            
+            <div class="secao-conteudo">
+                <p>Não colocar todos os ovos na mesma cesta é a regra número um das finanças. A <strong>Alocação de Ativos</strong> é o processo de dividir seu capital entre diferentes classes para reduzir riscos e otimizar ganhos.</p>
+                
+                <h3>As Três Principais Classes:</h3>
+                <ol>
+                    <li><strong>Renda Fixa:</strong> Empréstimo do seu dinheiro para o governo ou bancos (Ex: Tesouro Direto, CDB). Mais seguro, retorno previsível.</li>
+                    <li><strong>Renda Variável:</strong> Participação em empresas ou ativos imobiliários (Ex: Ações, Fundos Imobiliários). Maior risco, potencial de ganho ilimitado.</li>
+                    <li><strong>Ativos de Proteção:</strong> Bens que tendem a manter valor em crises (Ex: Dólar, Ouro).</li>
+                </ol>
+            </div>
+
+            <div class="secao-conteudo">
+                <h3>O Triângulo do Investimento</h3>
+                <p>É impossível ter o máximo dos três ao mesmo tempo. Você deve escolher onde focar:</p>
+                <table class="tabela-alocacao">
+                    <tr>
+                        <th>Pilar</th>
+                        <th>O que significa?</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Segurança</strong></td>
+                        <td>O quão difícil é perder o valor investido.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Liquidez</strong></td>
+                        <td>A velocidade com que você transforma o ativo em dinheiro na conta.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rentabilidade</strong></td>
+                        <td>O quanto seu dinheiro "trabalha" e gera lucro.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="estratega-box">
+            <h2 style="margin-top: 0; color: #FB7185;">Sugestões de Carteira</h2>
+            <p>A divisão ideal depende do seu perfil de risco e objetivos de longo prazo:</p>
+            
+            <div class="perfil-grid">
+                <div class="perfil-card">
+                    <h4 style="color: #4ADE80; margin-top: 0;">Conservador</h4>
+                    <p style="font-size: 0.9rem;">Foco em preservar o patrimônio.</p>
+                    <ul style="font-size: 0.85rem; padding-left: 20px;">
+                        <li>80% Renda Fixa</li>
+                        <li>15% Fundos Imobiliários</li>
+                        <li>5% Ações</li>
+                    </ul>
+                </div>
+                <div class="perfil-card">
+                    <h4 style="color: #EAB308; margin-top: 0;">Moderado</h4>
+                    <p style="font-size: 0.9rem;">Equilíbrio entre segurança e ganho.</p>
+                    <ul style="font-size: 0.85rem; padding-left: 20px;">
+                        <li>60% Renda Fixa</li>
+                        <li>30% Renda Variável</li>
+                        <li>10% Internacional/Dólar</li>
+                    </ul>
+                </div>
+                <div class="perfil-card">
+                    <h4 style="color: #FB7185; margin-top: 0;">Arrojado</h4>
+                    <p style="font-size: 0.9rem;">Foco em crescimento acelerado.</p>
+                    <ul style="font-size: 0.85rem; padding-left: 20px;">
+                        <li>30% Renda Fixa</li>
+                        <li>50% Ações/FIIs</li>
+                        <li>20% Cripto/Internacional</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p style="font-size: 0.8rem; color: #94A3B8; margin-top: 20px; text-align: center;">
+                *Lembre-se: Rebalancear sua carteira semestralmente é essencial para manter sua estratégia viva.
+            </p>
+        </div>
+    </div>
+
+    <script src="logica-acesso.js"></script>
+</body>
+</html>
